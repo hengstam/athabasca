@@ -1,0 +1,5 @@
+1) Copy .lat, .long, .elev, and .time properties (henceforth called 'shot properties') to 'trimmed' shot properties
+2) Impose bounds upon the data based on study region limitations; anything that doesn't fall within them is made NaN. These limitations are currently eyeballed (thus really generous) and might be tweaked, but right now the requirements are 52>lat>60 (deg), 100>long>150 (deg) , 1000>elev>4000 (m), 7.35e5>time>7.39e (sec?).
+3) That gets rid of most of the bizarre and obviously erroneous values, but there are still some clearly wrong measurements. I run a 7-wide Gaussian convolution over the data to smooth it out. Anything that lies more than a standard deviation from the Gaussian convolution is made NaN. This process is visualized when you process each bedPicks .mat file.
+4) I get the shot properties for each pick (even if it occurs somewhat between shots) by linearly interpolating the value of the two shots the pick is between.
+5) All processed files are loaded into one large data structure. Any shots for which any of the shot properties are NaN are moved.
