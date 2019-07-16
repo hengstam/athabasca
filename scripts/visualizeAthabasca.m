@@ -92,34 +92,3 @@ figure(3);
     subplot(2, 2, 4);
         plot(visdata.latCSRSPicks(sortCSRS(indexCSRS))-visdata.longCSRSPicks(sortCSRS(indexCSRS)), visdata.elevCSRSPicks(sortCSRS(indexCSRS))-visdata.zPicks(sortCSRS(indexCSRS)), 'o-');
         title("CSRS data");        
-
-% This figure serves as a legend for which gps data came from file
-% figure(4); hold on;
-%     N = length(bedrockPicks);
-%     % Set up a data structure to build the legend off of
-%     Legend = cell(N, 1);
-%     % There's too many seperate traces to use color to tell them apart so
-%     % we'll have to incorporate texture also
-%     for i=1:N
-%         switch mod(i, 4)
-%             case 0
-%                 linespec = '-';
-%             case 1
-%                 linespec = ':';
-%             case 2
-%                 linespec = '--';
-%             case 3
-%                 linespec = '-.';
-%         end
-%         d = bedrockPicks(i);
-%         plot3(d.visdata.long, d.visdata.lat, d.visdata.elev-d.depth, linespec, 'LineWidth', 1.5, 'Color', hsv2rgb([floor(i/4)*4/N, 1, 0.8]));
-%         plot3(d.visdata.long, d.visdata.lat, d.visdata.elev, linespec, 'LineWidth', 1.5, 'Color', hsv2rgb([floor(i/4)*4/N, 1, 0.8]));
-%         Legend{i} = d.name;
-%     end
-%     % Add the highlighted values in the previous figure's profile
-%     plot3(visdata.longPicks(sorted(index)), visdata.latPicks(sorted(index)), visdata.elevPicks(sorted(index))-visdata.zPicks(sorted(index)), 'o-', 'Color', [1, 0, 0]);
-%     % Build legend
-%     legend(Legend);
-%     % Configure figure
-%     xlabel("visdata.longitude"); ylabel("visdata.latitude"); zlabel("visdata.elevation (m)");
-%     axis square;

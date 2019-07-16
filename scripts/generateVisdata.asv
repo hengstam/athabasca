@@ -37,7 +37,7 @@ for file = files'
     % Save depths
     zPicks = [zPicks, recDigitize.zPick'];     
     % Save source names
-    sourceNames{i} = file.name;
+    sourceNames = {sourceNames, '
 end
 
 % Load all CSRS data
@@ -87,9 +87,6 @@ timesCSRS = timesCSRS(CSRSindex);
 % Get time indices for CSRS correlation
 timeCSRSPicks = timePicks;
 
-% Copy over sources
-sourceCSRSPicks = sourcePicks;
-
 % Repick positions based on CSRS stuff
 latCSRSPicks = ones(1, length(timePicks));
 longCSRSPicks = ones(1, length(timePicks));
@@ -130,13 +127,11 @@ visdata.lats = lats;
 visdata.longs = longs;
 visdata.elevs = elevs;
 visdata.tri = tri;
-visdata.sources = sources;
 visdata.timePicks = timePicks;
 visdata.latPicks = latPicks;
 visdata.longPicks = longPicks;
 visdata.elevPicks = elevPicks;
 visdata.triPick = triPick;
-visdata.sourcePicks = sourcePicks;
 visdata.timesCSRS = timesCSRS;
 visdata.latsCSRS = latsCSRS;
 visdata.longsCSRS = longsCSRS;
@@ -147,8 +142,6 @@ visdata.latCSRSPicks = latCSRSPicks;
 visdata.longCSRSPicks = longCSRSPicks;
 visdata.elevCSRSPicks = elevCSRSPicks;
 visdata.triCSRSPick = triCSRSPick;
-visdata.sourceCSRSPicks = sourceCSRSPicks;
 visdata.zPicks = zPicks;
-visdata.sourceNames = sourceNames;
 
 save('visdata.mat', 'visdata')

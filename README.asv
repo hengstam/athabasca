@@ -1,0 +1,31 @@
+# athabasca
+ 
+/scripts:
+
+	processRadarData.m:
+
+		I haven't used this one.
+
+	digitizeRadargram.m: 
+
+		I didn't write this one. Run it, use it, and it'll output .mat files in /digitizedRadar that can be fed into the next script, cleanDigitizedRadar.m.
+
+	cleanDigitizedRadar.m:
+
+		You'll have to change the fileName variable on line 5 to process different files. Otherwise runs happily and will remove garbage values from a raw set of fresh picks. Outputs .mat files in the /scripts directory that the next script uses. Bonus: it displays what the new data looks like.
+
+	generateVisdata.m:
+
+		Produces the visdata.mat which the following script visualizes.
+
+	visualizeAthabasca.m: 
+
+		Visualizes the whole glacier based on the visdata.mat file produced by the previous script.
+
+visdata.mat:
+    
+    longs, lats, elevs, times:
+        These fields are the cleaned and linearly interpolated data obtained by the handheld GPS. The interpolation was performed to eliminate the "bursty" sort of data collection the raw data displayed. Interpolation is performed by generating an artifical and evenly-spaced time series, then interpolating existing position data to obtain position data that would correspond to the artificial times. 
+
+    longPicks, latPicks, elevPicks, timePicks: 
+        These fields are the data of the surface position of each bedrock pick, based on the interpolated handheld GPS data. Under the assumption that each shot number corresponds to one of the artificial times generated in the processing of the previous data, 
