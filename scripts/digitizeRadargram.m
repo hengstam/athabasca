@@ -7,8 +7,8 @@ close all
 
 %% load data
 
-folderPath = 'C:\Users\hengstam\Documents\athabasca\radar\mat_files\gain\'; % folder path where *_gain.mat files live
-outputPath  = 'C:\Users\hengstam\Documents\athabasca\digitizedRadar\';
+folderPath = '..\radar\mat_files\gain\'; % folder path where *_gain.mat files live
+outputPath  = '..\digitizedRadar\raw\';
 profileName = 'mar7_10'; % profile to digitize
 
 load([folderPath,profileName,'_gain.mat'])

@@ -1,16 +1,19 @@
 clear;
 
-folderPath = 'C:\Users\hengstam\Documents\athabasca\digitizedRadar\';
-
+% Edit this variable to load other 
 fileName = 'mar6_8';
 
-load([folderPath, fileName, '_bedPicks.mat']);
+% You should not need to change these
+folderPath = '..\digitizedRadar\raw\';
+outPath = '..\digitizedRadar\clean\';
 
+% Load the data
+load([folderPath, fileName, '_bedPicks.mat']);
 d = recDigitize;
 
 % These values configure the cleaning function used below
-s = 5;
-b = 1;
+s = 5; % Sliding window size for gaussian convolution
+b = 1; % Number of standard deviations to retain
 
 % Make copies of all the data to be cleaned
 d.latTrim = d.lat;
@@ -143,11 +146,10 @@ clf;
         % Configure
         xlabel('Lat'); ylabel('Long'); zlabel('Elev'); grid on; title('Map');
     hold off;
-end
 
 % Save it
 recDigitize = d;
-save([fileName, '_cleanPicks.mat'], 'recDigitize')
+save([outPath fileName, '_cleanPicks.mat'], 'recDigitize')
 
 % The smoothing function
 function out = gaussSmooth (data, window)
