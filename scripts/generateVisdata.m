@@ -58,10 +58,12 @@ lats(nans == 1) = [];
 longs(nans == 1) = [];
 elevs(nans == 1) = [];
 times(nans == 1) = [];
+sources(nans == 1) = [];
 latPicks(nanPicks == 1) = [];
 longPicks(nanPicks == 1) = [];
 elevPicks(nanPicks == 1) = [];
 timePicks(nanPicks == 1) = [];
+sourcePicks(nanPicks == 1) = [];
 zPicks(nanPicks == 1) = [];
 
 % Get sorting index
@@ -74,10 +76,12 @@ lats = lats(index);
 longs = longs(index);
 elevs = elevs(index);
 times = times(index);
+sources = sources(index);
 latPicks = latPicks(pickindex);
 longPicks = longPicks(pickindex);
 elevPicks = elevPicks(pickindex);
 timePicks = timePicks(pickindex);
+sourcePicks = sourcePicks(pickindex);
 zPicks = zPicks(pickindex);
 latsCSRS = latsCSRS(CSRSindex);
 longsCSRS = longsCSRS(CSRSindex);
